@@ -1,0 +1,44 @@
+
+
+.MuiInput-underline:after 
+{
+    border-bottom: 2px solid #f50057 !important;
+}
+
+.MuiInputLabel-shrink {
+    color: #f50057 !important;
+}
+.MuiFormHelperText-root {
+    color: #f50057 !important;
+}
+.login__logo
+{
+    height:100px;
+    width: 100px;
+    object-fit: cover;
+    
+}
+.login__logoContainer{
+    margin-top:100px;
+}
+.login__container
+{
+ 
+ margin-left: auto;
+ margin-right: auto;
+}
+@media (min-width: 360px) and (max-width: 640px) {
+    .login__logoContainer{
+        margin-top:60px;
+    }
+  .login__container
+{
+  top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+}
+.clr{
+    background-color: rgba(238, 63, 101, 0.986);
+}

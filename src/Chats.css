@@ -1,0 +1,14 @@
+
+.chats{
+    margin-top: 65px;
+}
+.MuiList-root .MuiList-padding
+{
+    padding: 0px ;
+    margin: 0px;
+} 
+.MuiListItemIcon-root .MuiButtonBase-root
+{
+    padding: 0px !important;
+    margin: 0px !important;
+}

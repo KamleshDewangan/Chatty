@@ -1,0 +1,24 @@
+.chat{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding:20px;
+   
+   
+}
+.chat__details{
+    padding-left: 20px;
+    flex:2;
+}
+.chat__details >p{
+color:rgb(169, 169, 169)
+
+}
+.chat__timestamp{
+    margin-left: auto;
+    color: lightgrey;
+}
+ 
+#name,#msg{
+margin: 0px !important;
+}
