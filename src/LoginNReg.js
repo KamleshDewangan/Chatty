@@ -40,7 +40,7 @@ function LoginNReg() {
             }).then(response => {
                 localStorage.setItem("UserId", response.data.UserId);
                 localStorage.setItem("Photo",response.data.Photo)
-                history.replace("/");
+                history.replace("/Chatty");
 
             }).catch(e => console.log(e));
 
@@ -66,7 +66,7 @@ function LoginNReg() {
                 <>
                 {isLoginStart?(
                 <div className={classNames("card")} style={{ border:'none',marginTop:'130px', width: '20rem',marginLeft:'auto',marginRight:'auto' }}>
-                   <div class="card-body">
+                   <div className="card-body">
                        <img className="card-img-top" alt="Loading..." src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif"/>
                    </div>
                    </div>):(

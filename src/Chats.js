@@ -34,7 +34,7 @@ function Chats() {
                       return(
                           <ListItem key={chat.Sender} className="chats__ListItem" button component={Link} to={`/Chat/${chat.Sender}/`}>
                           {
-                         <Chat  IsReceiver={true} photo={chat.photo} name={chat.Sender} msg={chat.Msg}/>
+                         <Chat  IsReceiver={true} photo={chat.Photo} name={chat.Sender} msg={chat.Msg}/>
                           }
                           
                        </ListItem>
@@ -46,7 +46,7 @@ function Chats() {
                      
                           <ListItem key={chat.Receiver} className="chats__ListItem" button component={Link} to={`/Chat/${chat.Receiver}/`}>
                              {
-                             <Chat  photo={chat.photo} name={chat.Receiver} msg={chat.Msg}/>
+                             <Chat  photo={chat.Photo} name={chat.Receiver} msg={chat.Msg}/>
                              }
                              
                           </ListItem>

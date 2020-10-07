@@ -1,4 +1,4 @@
-import React, { useState,useEffect} from 'react';
+import React, { useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Profile.css';
 import classNames from 'classnames'
@@ -71,6 +71,7 @@ function Profile() {
             localStorage.removeItem("UserId");
             localStorage.removeItem("Photo");
             setLoggedOut(true);
+            history.replace("/Login/")
         }
      
         
@@ -81,7 +82,7 @@ function Profile() {
         
         {
             !isLoggedOut?(<div id="profilecontainer" className={classNames("card", 'container')} style={{ width: '20rem' }}>
-         {isUploadStart?(<img className="card-img-top" alt="Loading..." src="https://media.tenor.com/images/67d17766117cca8152040f688609472b/tenor.gif"/>):(
+         {isUploadStart?(<img className="card-img-top" alt="Loading..." src="https://i.pinimg.com/originals/ec/d6/bc/ecd6bc09da634e4e2efa16b571618a22.gif"/>):(
              
             
 

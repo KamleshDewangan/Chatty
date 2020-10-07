@@ -40,7 +40,7 @@ function Header({backButton}) {
        }
     
       
-      <Link to="/">
+      <Link to="/Chatty">
       <img className="header__logo" src="https://cdn.dribbble.com/users/27903/screenshots/6035052/chatty_2x.png" alt="tinder-logo"/>
       </Link>
    

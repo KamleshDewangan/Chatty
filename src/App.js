@@ -76,7 +76,7 @@ import ErrorBoundry from './ErrorBoundry';
      
         <Switch>
         {/* Home Screen */}
-        <Route exact  path="/">
+        <Route exact  path="/Chatty">
           <ErrorBoundry>
           <Header/>
           <Home/>
@@ -87,14 +87,14 @@ import ErrorBoundry from './ErrorBoundry';
        
           <Route exact strict path="/Chats/">
             <ErrorBoundry>
-            <Header  backButton="/" />
+            <Header  backButton="/Chatty" />
             <Chats />
             </ErrorBoundry>
           </Route>
            {/* Profile */}
           <Route  exact strict path="/Profile/">
           <ErrorBoundry>
-          <Header  backButton="/" />
+          <Header  backButton="/Chatty" />
               <Profile/>
               </ErrorBoundry>
               </Route>
@@ -118,7 +118,7 @@ import ErrorBoundry from './ErrorBoundry';
             <ChatScreen />
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
-         <Redirect to="/"/>
+         <Redirect to="/Chatty"/>
          
         </Switch>
       </Router>
@@ -134,7 +134,7 @@ import ErrorBoundry from './ErrorBoundry';
       
        <Router>
        <Switch>
-        <Route exact strict path="/Login"  component={LoginNReg}/>
+        {/* <Route exact strict path="/Login"  component={LoginNReg}/> */}
          <Redirect to="/Login"/>
          </Switch>
      </Router> 

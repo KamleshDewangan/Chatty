@@ -6,11 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import classNames from 'classnames';
 
 function Home() {
- 
+   
     const[isloaded,setload]=useState(false);
     const [userList,setUserList]=useState([]);
-    const [conditionList,setConditionList]=useState([]);
+    
     useEffect( ()=>{
+
 
         axios.get(`https://chatee.somee.com/api/Chat/GetData?userid=${localStorage.getItem("UserId")}`,{
             headers:{
@@ -19,32 +20,34 @@ function Home() {
             }
         }).then( (response)=>{
 
-           setUserList(response.data.userlist);
+            
+
+           setUserList(response.data);
             setload(true);
 
-      for (let i = 0; i <response.data.conditionlist.length ;i++) {
-          
-        setConditionList(preval=>[...preval,response.data.conditionlist[i].Receiver]);
-          
-      }
       
+      
+  
               
           
         }).catch(err=>console.log(err));
-    }, []);
+
+      
+    } 
+    ,[]);
     
-    
-    return (
-       <>
-       {isloaded?(<div  className={classNames('home','conatiner','overflow-auto')}>
+    if(isloaded)
+    {
+        if(userList.length>0)
+        {
+            return(
+
+                <div  className={classNames('home','conatiner','overflow-auto')}>
             <div style={{marginTop:'65px',justifyContent:'center'}} className="row">
         
              {
                  userList.map(u=>{
-                     if(u.UserId!==localStorage.getItem("UserId")){
-                        if(!conditionList.includes(u.UserId))
-                        {
-                            
+                     
                             return(
                                 
                                 <div key={u.UserId} className="card" style={{ width: '18rem',margin:'5px'}}>
@@ -62,18 +65,26 @@ function Home() {
                           </div>
                             )
                        
-                        }
-                     }
+                     
                        
                  })
              }
           </div>
        
-        </div>)
-       : <h3 style={{color:"lightgrey",textAlign:'center',margin:'auto',marginTop:'200px'}}>Loading...</h3>}
-        
-        </>
-    )
+        </div>
+            )
+        }
+        else
+        {
+            return <h3 style={{color:"lightgrey",textAlign:'center',margin:'auto',marginTop:'200px'}}>No more user for chat...</h3>
+        }
+    }
+    else
+    {
+        return  <h3 style={{color:"lightgrey",textAlign:'center',margin:'auto',marginTop:'200px'}}>Loading...</h3>
+    }
+    
+    
 
 }
 
