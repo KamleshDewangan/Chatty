@@ -76,7 +76,7 @@ import ErrorBoundry from './ErrorBoundry';
      
         <Switch>
         {/* Home Screen */}
-        <Route exact  path="/Chatty">
+        <Route exact  path="/https://kamleshdewangan.github.io/Chatty">
           <ErrorBoundry>
           <Header/>
           <Home/>
