@@ -9,7 +9,7 @@ import LoginNReg from './LoginNReg';
 import axios from 'axios';
 import Home from './Home';
 import ErrorBoundry from './ErrorBoundry';
-import { MemoryRouter } from 'react-router';
+
  function App() {
  
  const history=useHistory();
@@ -53,13 +53,13 @@ import { MemoryRouter } from 'react-router';
       
       <div className="App"> 
     
-        <Router>
+       <Router> 
         <Switch>
-        <Route exact strict path="/Login" component={LoginNReg} /> 
-          <Redirect to="/Login"/>
+        {/* <Route exact strict path="/Chatty/Login" component={LoginNReg} />  */}
+          <Redirect to="/Chatty/Login"/>
        </Switch>
-        </Router> 
-   
+        </Router>  
+     
       </div>
     );
   }
@@ -70,6 +70,7 @@ import { MemoryRouter } from 'react-router';
   {
     if(ischeck)
     {
+      
       return(
      
  
@@ -77,7 +78,7 @@ import { MemoryRouter } from 'react-router';
      
         <Switch>
         {/* Home Screen */}
-        <Route exact  path="/Chatty">
+        <Route exact  path="/">
           <ErrorBoundry>
           <Header/>
           <Home/>
@@ -120,8 +121,9 @@ import { MemoryRouter } from 'react-router';
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
         
-         <Redirect  to="/Chatty/"/>
+         <Redirect  to="/" from="/Chatty/"/>
          
+
         </Switch>
       </Router>
    
@@ -134,13 +136,13 @@ import { MemoryRouter } from 'react-router';
       return( 
       <>
       
-       <Router>
+       {/* <Router>
        <Switch>
-        {/* <Route exact strict path="/Login"  component={LoginNReg}/> */}
+       
          <Redirect to="/Login"/>
          </Switch>
-     </Router> 
-         
+     </Router>  */}
+          {/* <Route exact strict path="/Login"  component={LoginNReg}/> */}
         </>
         )
     }
