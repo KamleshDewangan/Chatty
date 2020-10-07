@@ -76,7 +76,7 @@ import ErrorBoundry from './ErrorBoundry';
      
         <Switch>
         {/* Home Screen */}
-        <Route exact  path="/https://kamleshdewangan.github.io/Chatty">
+        <Route exact  path="https://kamleshdewangan.github.io/Chatty">
           <ErrorBoundry>
           <Header/>
           <Home/>
@@ -118,7 +118,7 @@ import ErrorBoundry from './ErrorBoundry';
             <ChatScreen />
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
-         <Redirect to="/Chatty"/>
+         <Redirect to="https://kamleshdewangan.github.io/Chatty"/>
          
         </Switch>
       </Router>
