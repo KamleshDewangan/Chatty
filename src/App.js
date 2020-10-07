@@ -76,7 +76,7 @@ import ErrorBoundry from './ErrorBoundry';
      
         <Switch>
         {/* Home Screen */}
-        <Route exact  path="https://kamleshdewangan.github.io/Chatty">
+        <Route exact  path="/Chatty">
           <ErrorBoundry>
           <Header/>
           <Home/>
@@ -85,14 +85,14 @@ import ErrorBoundry from './ErrorBoundry';
           {/*Chat List */}
         
        
-          <Route exact strict path="/Chats/">
+          <Route exact strict path="/Chatty/Chats/">
             <ErrorBoundry>
             <Header  backButton="/Chatty" />
             <Chats />
             </ErrorBoundry>
           </Route>
            {/* Profile */}
-          <Route  exact strict path="/Profile/">
+          <Route  exact strict path="/Chatty/Profile/">
           <ErrorBoundry>
           <Header  backButton="/Chatty" />
               <Profile/>
@@ -101,10 +101,10 @@ import ErrorBoundry from './ErrorBoundry';
 
           {/* ChatScreen */}
 
-          <Route  path="/Chat/:UserId/" strict render={
+          <Route  path="/Chatty/Chat/:UserId/" strict render={
             ({match})=>(
               <ErrorBoundry>
-              <Header backButton="/Chats/"/>
+              <Header backButton="/Chatty/Chats/"/>
                <ChatScreen targetUserId={match.params.UserId} />
               </ErrorBoundry>
             )
@@ -118,7 +118,7 @@ import ErrorBoundry from './ErrorBoundry';
             <ChatScreen />
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
-         <Redirect to="https://kamleshdewangan.github.io/Chatty"/>
+         <Redirect to="/Chatty"/>
          
         </Switch>
       </Router>
