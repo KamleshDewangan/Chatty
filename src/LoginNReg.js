@@ -39,9 +39,10 @@ function LoginNReg() {
 
             }).then(response => {
                 localStorage.setItem("UserId", response.data.UserId);
-                localStorage.setItem("Photo",response.data.Photo)
-                history.replace("/Chatty");
-
+                localStorage.setItem("Photo",response.data.Photo);
+                history.replace("/");
+              setStart(false)
+               
             }).catch(e => console.log(e));
 
 
@@ -97,12 +98,13 @@ function LoginNReg() {
 
 
             ) : (
-                    <>
+                    
                       
-                        <App />
+                    <App/>
+                        
 
-                    </>
-
+                 
+                    
                 )
             }
         </>

@@ -71,7 +71,7 @@ function Profile() {
             localStorage.removeItem("UserId");
             localStorage.removeItem("Photo");
             setLoggedOut(true);
-            history.replace("/Login/")
+            history.replace("/Chatty/Login/")
         }
      
         
@@ -103,8 +103,7 @@ function Profile() {
    
 </div>)
 
-:     history.replace("/Login/")
-
+:     history.replace("/Chatty/Login/")
 }
 </>
         

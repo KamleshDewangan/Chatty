@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {BrowserRouter as Router,Redirect,Route,Switch,useHistory} from 'react-router-dom';
+import {BrowserRouter as Router,Redirect,Route,Switch} from 'react-router-dom';
 import Header from './Header';
 import Chats from './Chats';
 import Profile from './Profile';
@@ -12,51 +12,53 @@ import ErrorBoundry from './ErrorBoundry';
 
  function App() {
  
- const history=useHistory();
+ 
   const [ischeck,setcheck]=useState(false);
   const [isloaded,setload]=useState(false);
  
  
  useEffect(()=>{
 
-    axios.get("https://chatee.somee.com/api/Chat/CheckUserid",{headers:{
+  //   axios.get("https://chatee.somee.com/api/Chat/CheckUserid",{headers:{
 
-      "Accept":'application/json'
-    }}).then(response=>
-      {
+  //     "Accept":'application/json'
+  //   }}).then(response=>
+  //     {
 
         
-      if(response.data.some(m=>m.UserId===localStorage.getItem("UserId")))
-      {
-        setload(true);
-        setcheck(true);
+  //     if(response.data.some(m=>m.UserId===localStorage.getItem("UserId")))
+  //     {
+  //       setload(true);
+  //       setcheck(true);
        
-      }else
-      {
-        localStorage.removeItem("UserId");
-      localStorage.removeItem("Photo")
-        setload(true);
-        setcheck(false);
-      }
+  //     }else
+  //     {
+  //       localStorage.removeItem("UserId");
+  //     localStorage.removeItem("Photo")
+  //       setload(true);
+  //       setcheck(false);
+  //     }
    
  
       
-      }).catch(err=>console.log(err));
+  //     }).catch(err=>console.log(err));
   
   }
 
   ,[]);
-
-  if(!localStorage.getItem("UserId")){
   
+
+  
+  if(!localStorage.getItem("UserId")){
+   
     return (
       
       <div className="App"> 
     
        <Router> 
         <Switch>
-        {/* <Route exact strict path="/Chatty/Login" component={LoginNReg} />  */}
-          <Redirect to="/Chatty/Login"/>
+        <Route exact strict path="/Chatty/Login/" component={LoginNReg} /> 
+          <Redirect to="/Chatty/Login/"/>
        </Switch>
         </Router>  
      
@@ -66,19 +68,15 @@ import ErrorBoundry from './ErrorBoundry';
 
  else
  {
-  if(isloaded)
-  {
-    if(ischeck)
-    {
-      
-      return(
-     
  
+    
+      return(
         <Router>
      
         <Switch>
+          
         {/* Home Screen */}
-        <Route exact  path="/">
+        <Route exact strict path="/Chatty/">
           <ErrorBoundry>
           <Header/>
           <Home/>
@@ -87,14 +85,14 @@ import ErrorBoundry from './ErrorBoundry';
           {/*Chat List */}
         
        
-          <Route exact strict path="/Chats/">
+          <Route exact strict path="/Chatty/Chats/">
             <ErrorBoundry>
             <Header  backButton="/Chatty/" />
             <Chats />
             </ErrorBoundry>
           </Route>
            {/* Profile */}
-          <Route  exact strict path="/Profile/">
+          <Route  exact strict path="/Chatty/Profile/">
           <ErrorBoundry>
           <Header  backButton="/Chatty/" />
               <Profile/>
@@ -114,45 +112,24 @@ import ErrorBoundry from './ErrorBoundry';
           }/>
 
       
-        <Route exact strict path="/Login/" component={LoginNReg} />
+        <Route exact strict path="/Chatty/Login/" component={LoginNReg} />
             {/* <Header backButton="/Chats" />
 
             <ChatScreen />
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
         
-         <Redirect  to="/" from="/Chatty/"/>
+         <Redirect  to="/Chatty/" from="/"/>
          
 
         </Switch>
       </Router>
-   
-  
       )
     }
-    else
-    {
-      
-      return( 
-      <>
-      
-       {/* <Router>
-       <Switch>
-       
-         <Redirect to="/Login"/>
-         </Switch>
-     </Router>  */}
-          {/* <Route exact strict path="/Login"  component={LoginNReg}/> */}
-        </>
-        )
-    }
-  }
-  else{
-    return(
-      <h3 style={{color:"lightgrey",textAlign:'center',margin:'auto',marginTop:'200px'}}>Loading...</h3>
-    )
-  }
- }
+   
+
+ 
+
 
     
 
