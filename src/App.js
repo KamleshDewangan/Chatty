@@ -12,6 +12,7 @@ import ErrorBoundry from './ErrorBoundry';
 
  function App() {
  
+ 
   const [ischeck,setcheck]=useState(false);
   const [isloaded,setload]=useState(false);
  
@@ -76,7 +77,7 @@ import ErrorBoundry from './ErrorBoundry';
      
         <Switch>
         {/* Home Screen */}
-        <Route exact  path="https://kamleshdewangan.github.io/Chatty">
+        <Route exact  path="/Chatty">
           <ErrorBoundry>
           <Header/>
           <Home/>
@@ -118,7 +119,7 @@ import ErrorBoundry from './ErrorBoundry';
             <ChatScreen />
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
-         <Redirect to="https://kamleshdewangan.github.io/Chatty"/>
+         <Redirect to="/Chatty"/>
          
         </Switch>
       </Router>
