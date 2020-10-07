@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import './Chats.css';
 import Chat from './Chat';
 import { List, ListItem } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import axios from 'axios';
 function Chats() {
+   
     const [isloaded,setload]=useState(false);
     const [chatList, setchatList] = useState([]);
     useEffect(() => {
-
+       
         axios.get(`https://chatee.somee.com/api/chat/Chats?UserId=${localStorage.getItem("UserId")}`, {
             headers: {
 

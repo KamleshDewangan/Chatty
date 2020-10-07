@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {BrowserRouter as Router,Redirect,Route,Switch} from 'react-router-dom';
+import {BrowserRouter as Router,Redirect,Route,Switch,useHistory} from 'react-router-dom';
 import Header from './Header';
 import Chats from './Chats';
 import Profile from './Profile';
@@ -9,10 +9,10 @@ import LoginNReg from './LoginNReg';
 import axios from 'axios';
 import Home from './Home';
 import ErrorBoundry from './ErrorBoundry';
-
+import { MemoryRouter } from 'react-router';
  function App() {
  
- 
+ const history=useHistory();
   const [ischeck,setcheck]=useState(false);
   const [isloaded,setload]=useState(false);
  
@@ -55,7 +55,7 @@ import ErrorBoundry from './ErrorBoundry';
     
         <Router>
         <Switch>
-        <Route exact strict path="/Login" component={LoginNReg}/> 
+        <Route exact strict path="/Login" component={LoginNReg} /> 
           <Redirect to="/Login"/>
        </Switch>
         </Router> 
@@ -86,44 +86,45 @@ import ErrorBoundry from './ErrorBoundry';
           {/*Chat List */}
         
        
-          <Route exact strict path="/Chatty/Chats/">
+          <Route exact strict path="/Chats/">
             <ErrorBoundry>
-            <Header  backButton="/Chatty" />
+            <Header  backButton="/Chatty/" />
             <Chats />
             </ErrorBoundry>
           </Route>
            {/* Profile */}
-          <Route  exact strict path="/Chatty/Profile/">
+          <Route  exact strict path="/Profile/">
           <ErrorBoundry>
-          <Header  backButton="/Chatty" />
+          <Header  backButton="/Chatty/" />
               <Profile/>
               </ErrorBoundry>
               </Route>
 
           {/* ChatScreen */}
 
-          <Route  path="/Chatty/Chat/:UserId/" strict render={
+          <Route  path="/Chat/:UserId/" strict render={
             ({match})=>(
               <ErrorBoundry>
-              <Header backButton="/Chatty/Chats/"/>
+              <Header backButton="/Chats/"/>
                <ChatScreen targetUserId={match.params.UserId} />
               </ErrorBoundry>
             )
 
           }/>
 
-        
-<Route exact strict path="/Login/" component={LoginNReg}/>
+      
+        <Route exact strict path="/Login/" component={LoginNReg} />
             {/* <Header backButton="/Chats" />
 
             <ChatScreen />
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
-         <Redirect to="/Chatty"/>
+        
+         <Redirect  to="/Chatty/"/>
          
         </Switch>
       </Router>
-     
+   
   
       )
     }
