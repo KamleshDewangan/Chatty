@@ -14,7 +14,7 @@ function Profile() {
     const [errMsg,setErrMsg]=useState("");
     const [isLoggedOut,setLoggedOut]=useState(false);
     
-   
+ 
    
     const imgHandler = (e) => {
         setStart(true);  
