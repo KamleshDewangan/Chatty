@@ -24,7 +24,7 @@ function Header({backButton}) {
               <ArrowBackIosIcon className="header__button"  fontSize="large" ></ArrowBackIosIcon>
           </IconButton>
 
-           :(<Link to="/Chatty/Profile/">
+           :(<Link to="/Profile/">
              
            <IconButton>
               {
@@ -40,11 +40,11 @@ function Header({backButton}) {
        }
     
       
-      <Link to="/Chatty">
+      <Link to="/">
       <img className="header__logo" src="https://cdn.dribbble.com/users/27903/screenshots/6035052/chatty_2x.png" alt="tinder-logo"/>
       </Link>
    
-      <Link to="/Chatty/Chats/">
+      <Link to="/Chats/">
           <IconButton className="iconbtn">
           <ChatBubbleSharpIcon  className="header__button" fontSize="large" />
        
