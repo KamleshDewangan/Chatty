@@ -14,6 +14,7 @@ const btnRef=useRef(null);
 const [value,setValue]=useState("");
 const messagesEndRef = useRef(null)
 const [msg,setMsg]=useState([]);
+const [receiverData,setReceiverData]=useState([]);
 
 const connection=new HubConnectionBuilder().withUrl("https://www.aayan.somee.com/Chat").configureLogging(LogLevel.Information).build();
       
@@ -60,6 +61,7 @@ const connection=new HubConnectionBuilder().withUrl("https://www.aayan.somee.com
             if(response.data.MessageList.length>0)
             {
                 setMsg(response.data.MessageList);
+                setReceiverData(response.data.ReceiverData);
               
             }else{
                 setFirstTime(true);
@@ -149,7 +151,7 @@ const connection=new HubConnectionBuilder().withUrl("https://www.aayan.somee.com
                     {
                         return(
                             <div key={m.Receiver} className="chatscreen__message"  >
-                            <Avatar style={{zIndex:-1}}/>
+                            <Avatar style={{zIndex:-1}} src={`https://chatee.somee.com/Image/${receiverData.Photo}`}/>
                                
                             <p className="chatscreen__recevivermsg">
                                 {m.Msg}
