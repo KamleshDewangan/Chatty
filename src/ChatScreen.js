@@ -149,7 +149,7 @@ const connection=new HubConnectionBuilder().withUrl("https://www.aayan.somee.com
                     {
                         return(
                             <div key={m.Receiver} className="chatscreen__message"  >
-                            <Avatar style={{zIndex:-1}} src={`https://chatee.somee.com/Image/${localStorage.getItem("Photo")}`}/>
+                            <Avatar style={{zIndex:-1}}/>
                                
                             <p className="chatscreen__recevivermsg">
                                 {m.Msg}
