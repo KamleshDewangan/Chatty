@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {BrowserRouter as Router,Redirect,Route,Switch} from 'react-router-dom';
+import {HashRouter as Router,Redirect,Route,Switch, HashRouter} from 'react-router-dom';
 import Header from './Header';
 import Chats from './Chats';
 import Profile from './Profile';
@@ -55,12 +55,12 @@ import ErrorBoundry from './ErrorBoundry';
       
       <div className="App"> 
     
-       <Router> 
+       <HashRouter> 
         <Switch>
         <Route exact strict path="/Chatty/Login/" component={LoginNReg} /> 
           <Redirect to="/Chatty/Login/"/>
        </Switch>
-        </Router>  
+        </HashRouter>  
      
       </div>
     );
@@ -71,7 +71,7 @@ import ErrorBoundry from './ErrorBoundry';
  
     
       return(
-        <Router>
+        <HashRouter>
      
         <Switch>
           
@@ -123,7 +123,7 @@ import ErrorBoundry from './ErrorBoundry';
          
 
         </Switch>
-      </Router>
+      </HashRouter>
       )
     }
    

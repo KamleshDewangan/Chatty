@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Profile.css';
 import classNames from 'classnames'
@@ -14,7 +14,7 @@ function Profile() {
     const [errMsg,setErrMsg]=useState("");
     const [isLoggedOut,setLoggedOut]=useState(false);
     
-
+   
    
     const imgHandler = (e) => {
         setStart(true);  
