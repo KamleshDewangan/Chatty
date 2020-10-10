@@ -11,11 +11,8 @@ import Home from './Home';
 import ErrorBoundry from './ErrorBoundry';
 
  function App() {
- 
- 
-  const [ischeck,setcheck]=useState(false);
-  const [isloaded,setload]=useState(false);
- 
+
+
  
  useEffect(()=>{
 

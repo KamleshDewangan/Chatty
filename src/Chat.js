@@ -9,7 +9,7 @@ function Chat({ name, photo, msg,IsReceiver }) {
             
             <div className="chat__details">
                 <h5 id="name">{name}</h5>
-                <p id="msg">{msg.substring(0,100)}</p>
+                <p id="msg">{msg.substring(0,20) +' . . . '}</p>
              
             </div>
             {IsReceiver?(<p style={{marginRight:'auto',paddingRight:'10px',fontWeight:'bold',color:'#f50057'}} id="undread">New</p>):null}
