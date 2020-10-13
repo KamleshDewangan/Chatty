@@ -15,6 +15,9 @@ import ErrorBoundry from './ErrorBoundry';
 
  
  useEffect(()=>{
+   if(localStorage.getItem("UserId")===null){
+
+   }
 
   //   axios.get("https://chatee.somee.com/api/Chat/CheckUserid",{headers:{
 
@@ -46,25 +49,6 @@ import ErrorBoundry from './ErrorBoundry';
   
 
   
-  if(!localStorage.getItem("UserId")){
-   
-    return (
-      
-      <div className="App"> 
-    
-       <HashRouter> 
-        <Switch>
-        <Route exact strict path="/Login/" component={LoginNReg} /> 
-          <Redirect to="/Login/"/>
-       </Switch>
-        </HashRouter>  
-     
-      </div>
-    );
-  }
-
- else
- {
  
     
       return(
@@ -116,7 +100,7 @@ import ErrorBoundry from './ErrorBoundry';
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
         
-         <Redirect  to="/"/>
+         <Redirect  to="#/" from="/Login/"/>
          
 
         </Switch>
@@ -130,6 +114,6 @@ import ErrorBoundry from './ErrorBoundry';
 
     
 
-}
+
 
   export default App

@@ -1,4 +1,5 @@
-import React, { useState} from 'react'
+import React, { useState} from 'react';
+import {useEffect} from 'react';
 import './LoginNReg.css';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
@@ -16,6 +17,7 @@ function LoginNReg() {
     const [errMsg, seterrMsg] = useState("");
     const [email, setEmail] = useState("");
     
+
     const submitHandler = (event) => {
      
         var x = document.forms["myForm"]["txtEmail"].value;
@@ -63,7 +65,7 @@ function LoginNReg() {
     return (
         <>
             
-            {!localStorage.getItem("UserId") ? (
+            {localStorage.getItem("UserId")===null ? (
                 <>
                 {isLoginStart?(
                 <div className={classNames("card")} style={{ border:'none',marginTop:'130px', width: '20rem',marginLeft:'auto',marginRight:'auto' }}>

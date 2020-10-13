@@ -71,7 +71,7 @@ function Profile() {
             localStorage.removeItem("UserId");
             localStorage.removeItem("Photo");
             setLoggedOut(true);
-            history.replace("/Login/")
+            
         }
      
         

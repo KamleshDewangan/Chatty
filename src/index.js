@@ -1,16 +1,29 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {HashRouter} from 'react-router-dom';
+import {HashRouter as Router,Redirect,Route,Switch, HashRouter,useHistory} from 'react-router-dom';
+import Header from './Header';
+import Chats from './Chats';
+import Profile from './Profile';
+import ChatScreen from './ChatScreen';
+import './App.css';
+import LoginNReg from './LoginNReg';
+import axios from 'axios';
+import Home from './Home';
+import ErrorBoundry from './ErrorBoundry';
+
+
 
 ReactDOM.render(
 
-  
+ localStorage.getItem("UserId")===null?(
+   
+<LoginNReg/>
+ ):<App/>
 
-        <App />
-      
+
   ,
   document.getElementById('root')
 );
