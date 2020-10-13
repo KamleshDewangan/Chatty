@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 function LoginNReg() {
    
     const history=useHistory();
+    const[loggedin,setloggedin]=useState("");
     const[isLoginStart,setStart]=useState(false);
     const [errMsg, seterrMsg] = useState("");
     const [email, setEmail] = useState("");
@@ -40,11 +41,15 @@ function LoginNReg() {
                 },
 
             }).then(response => {
+                alert(localStorage.getItem("UserId"))
                 localStorage.setItem("UserId", response.data.UserId);
                 localStorage.setItem("Photo",response.data.Photo);
+                alert(localStorage.getItem("UserId"))
                 history.replace("/");
-              setStart(false)
-               
+                alert(localStorage.getItem("UserId"))
+                // setStart(false);
+                 setloggedin("done");
+                
             }).catch(e => console.log(e));
 
 
@@ -67,6 +72,7 @@ function LoginNReg() {
             
             {localStorage.getItem("UserId")===null ? (
                 <>
+                
                 {isLoginStart?(
                 <div className={classNames("card")} style={{ border:'none',marginTop:'130px', width: '20rem',marginLeft:'auto',marginRight:'auto' }}>
                    <div className="card-body">
@@ -102,8 +108,7 @@ function LoginNReg() {
             ) : (
                     
                       
-                    <App/>
-                        
+                <App/>
 
                  
                     

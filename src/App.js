@@ -100,7 +100,7 @@ import ErrorBoundry from './ErrorBoundry';
           </Route> */}
         {/* this below route redircect the home component wherever it gets the unknown routes */}
         
-         <Redirect  to="#/" from="/Login/"/>
+         <Redirect  to="#/" />
          
 
         </Switch>
