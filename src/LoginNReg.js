@@ -18,7 +18,9 @@ function LoginNReg() {
     const [errMsg, seterrMsg] = useState("");
     const [email, setEmail] = useState("");
     
-
+    useEffect(()=>{
+     
+    },[loggedin]);
     const submitHandler = (event) => {
      
         var x = document.forms["myForm"]["txtEmail"].value;
@@ -41,14 +43,13 @@ function LoginNReg() {
                 },
 
             }).then(response => {
-                alert(localStorage.getItem("UserId"))
+               
                 localStorage.setItem("UserId", response.data.UserId);
                 localStorage.setItem("Photo",response.data.Photo);
-                alert(localStorage.getItem("UserId"))
-                history.replace("/");
-                alert(localStorage.getItem("UserId"))
-                // setStart(false);
+               
+                
                  setloggedin("done");
+               
                 
             }).catch(e => console.log(e));
 

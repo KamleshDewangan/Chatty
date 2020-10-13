@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import {HashRouter as Router,Redirect,Route,Switch, HashRouter} from 'react-router-dom';
+import {useHistory,Redirect,Route,Switch, HashRouter} from 'react-router-dom';
 import Header from './Header';
 import Chats from './Chats';
 import Profile from './Profile';
@@ -12,12 +12,9 @@ import ErrorBoundry from './ErrorBoundry';
 
  function App() {
 
-
  
  useEffect(()=>{
-   if(localStorage.getItem("UserId")===null){
-
-   }
+  
 
   //   axios.get("https://chatee.somee.com/api/Chat/CheckUserid",{headers:{
 
@@ -47,65 +44,76 @@ import ErrorBoundry from './ErrorBoundry';
 
   ,[]);
   
+  if(localStorage.getItem("UserId")===null){
+    return <LoginNReg/>
+      
+  }
+  else
+  {
+    
+    return(
+      
+      <HashRouter>
+   
+      <Switch>
+        
+      {/* Home Screen */}
+      <Route exact strict path="/">
+        <ErrorBoundry>
+        <Header/>
+        <Home/>
+        </ErrorBoundry>
+      </Route>
+        {/*Chat List */}
+      
+     
+        <Route exact strict path="/Chats/">
+          <ErrorBoundry>
+          <Header  backButton="/" />
+          <Chats />
+          </ErrorBoundry>
+        </Route>
+         {/* Profile */}
+        <Route  exact strict path="/Profile/">
+        <ErrorBoundry>
+        <Header  backButton="/" />
+            <Profile/>
+            </ErrorBoundry>
+            </Route>
 
+        {/* ChatScreen */}
+
+        <Route  path="/Chat/:UserId/" strict render={
+          ({match})=>(
+            <ErrorBoundry>
+            <Header backButton="/Chats/"/>
+             <ChatScreen targetUserId={match.params.UserId} />
+            </ErrorBoundry>
+          )
+
+        }/>
+        {/* <Route path="/Home/" strict exact component={App}/>
+          
+    
+      <Route exact strict path="/Login/" component={LoginNReg} /> */}
+          {/* <Header backButton="/Chats" />
+    
+          <ChatScreen />
+        </Route> */}
+      {/* this below route redircect the home component wherever it gets the unknown routes */}
+     
+     
+       {/* <Redirect  to="/" /> */}
+       
+
+      </Switch>
+    </HashRouter>
+    )
+  }
   
  
     
-      return(
-        <HashRouter>
-     
-        <Switch>
-          
-        {/* Home Screen */}
-        <Route exact strict path="/">
-          <ErrorBoundry>
-          <Header/>
-          <Home/>
-          </ErrorBoundry>
-        </Route>
-          {/*Chat List */}
-        
-       
-          <Route exact strict path="/Chats/">
-            <ErrorBoundry>
-            <Header  backButton="/" />
-            <Chats />
-            </ErrorBoundry>
-          </Route>
-           {/* Profile */}
-          <Route  exact strict path="/Profile/">
-          <ErrorBoundry>
-          <Header  backButton="/" />
-              <Profile/>
-              </ErrorBoundry>
-              </Route>
-
-          {/* ChatScreen */}
-
-          <Route  path="/Chat/:UserId/" strict render={
-            ({match})=>(
-              <ErrorBoundry>
-              <Header backButton="/Chats/"/>
-               <ChatScreen targetUserId={match.params.UserId} />
-              </ErrorBoundry>
-            )
-
-          }/>
-
-      
-        <Route exact strict path="/Login/" component={LoginNReg} />
-            {/* <Header backButton="/Chats" />
-
-            <ChatScreen />
-          </Route> */}
-        {/* this below route redircect the home component wherever it gets the unknown routes */}
-        
-         <Redirect  to="#/" />
-         
-
-        </Switch>
-      </HashRouter>
-      )
+ 
     }
    
 

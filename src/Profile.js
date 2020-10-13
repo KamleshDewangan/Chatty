@@ -6,6 +6,7 @@ import './resonsive.css';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
+
 function Profile() {
 
     const history=useHistory();
@@ -14,7 +15,9 @@ function Profile() {
     const [errMsg,setErrMsg]=useState("");
     const [isLoggedOut,setLoggedOut]=useState(false);
     
- 
+ useEffect(()=>{
+
+ },[isLoggedOut]);
    
     const imgHandler = (e) => {
         setStart(true);  
@@ -63,18 +66,20 @@ function Profile() {
     }
 
     
-    const logoutHandler = () => {
+    const logoutHandler = (e) => {
 
         const ans=window.confirm('Are you sure?')
         if(ans)
         {
             localStorage.removeItem("UserId");
             localStorage.removeItem("Photo");
+            history.replace("/Login")
+           
             setLoggedOut(true);
-            
+            window.location.href="https://kamleshdewangan.github.io/Chatty";
         }
      
-        
+     
     }
    
     return (
@@ -103,7 +108,10 @@ function Profile() {
    
 </div>)
 
-:     history.replace("/Login/")
+
+:   
+null
+
 }
 </>
         
